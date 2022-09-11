@@ -18,7 +18,8 @@ RUN apt -y install less vim unzip wget curl ca-certificates \
 RUN add-apt-repository ppa:ondrej/php
 RUN apt -y update
 RUN apt -y install \
-    nginx php8.2-fpm php8.2-gd php8.2-mbstring php8.2-xml php8.2-zip
+    nginx php8.2-fpm php8.2-gd php8.2-mbstring php8.2-xml php8.2-zip \
+    php8.2-mysql
 
 # Uncompressing blessing skin server
 RUN unzip server.zip && rm server.zip
