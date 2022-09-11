@@ -36,6 +36,7 @@ RUN mkdir -p /run/php && chown www-data:www-data /run/php
 
 # Change source file owner to www-data
 RUN chown -R www-data:www-data ./*
+RUN chown -R www-data:www-data ./.env
 
 # Start nginx
 CMD ["./start.sh"]
