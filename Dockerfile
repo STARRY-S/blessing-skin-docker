@@ -18,3 +18,9 @@ RUN apt -y install \
 
 RUN unzip server.zip
 RUN ls -alh
+
+# Copy environment file
+RUN cp .env.example .env
+RUN php artisan key:generate
+
+RUN cp src/nginx.conf /etc/nginx/sites-enabled/default
