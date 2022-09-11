@@ -8,19 +8,25 @@ WORKDIR /server
 COPY src .
 COPY server.zip .
 
+# Install utils
 RUN apt -y update
 RUN apt -y install zip unzip wget curl ca-certificates \
     lsb-release ca-certificates apt-transport-https software-properties-common
+# Install nginx and php
 RUN add-apt-repository ppa:ondrej/php
 RUN apt -y update
 RUN apt -y install \
-    php8.2-fpm
+    nginx php8.2-fpm
 
-RUN unzip server.zip
+# Uncompressing blessing skin server
+RUN unzip server.zip && rm server.zip
 RUN ls -alh
 
-# Copy environment file
+# Generate configuration
 RUN cp .env.example .env
 RUN php artisan key:generate
+# Update nginx configuration
+RUN cp nginx.conf /etc/nginx/sites-enabled/default
 
-RUN cp src/nginx.conf /etc/nginx/sites-enabled/default
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]
