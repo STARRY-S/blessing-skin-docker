@@ -12,7 +12,7 @@ COPY start.sh .
 
 # Install utils
 RUN apt -y update
-RUN apt -y install zip unzip wget curl ca-certificates \
+RUN apt -y install less vim unzip wget curl ca-certificates \
     lsb-release ca-certificates apt-transport-https software-properties-common
 # Install nginx and php
 RUN add-apt-repository ppa:ondrej/php
