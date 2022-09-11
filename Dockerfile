@@ -5,8 +5,10 @@ ARG HTTPS_PROXY
 ARG DEBIAN_FRONTEND=noninteractiv
 WORKDIR /server
 
+# Copy source files
 COPY src .
 COPY server.zip .
+COPY start.sh .
 
 # Install utils
 RUN apt -y update
@@ -29,4 +31,4 @@ RUN php artisan key:generate
 RUN cp nginx.conf /etc/nginx/sites-enabled/default
 
 # Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["./start.sh"]
