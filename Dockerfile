@@ -8,7 +8,6 @@ WORKDIR /server
 # Copy source files
 COPY src .
 COPY server.zip .
-COPY start.sh .
 
 # Install utils
 RUN apt -y update
@@ -39,4 +38,4 @@ RUN chown -R www-data:www-data ./*
 RUN chown -R www-data:www-data ./.env
 
 # Start nginx
-CMD ["./start.sh"]
+CMD ["./entry.sh"]
