@@ -7,4 +7,12 @@ if [ ! -e "./certs/cert.key" ] || [ ! -e "./certs/cert.crt" ]; then
     exit 1
 fi
 
-docker run -v $(pwd)/certs:/certs -d -p 80:80 -p 443:443 --name bs-server --privileged bs-server
+mkdir -p certs
+mkdir -p html
+
+docker run -v $(pwd)/certs:/certs \
+    -v $(pwd)/html:/server/html \
+    -d -p 80:80 -p 443:443 \
+    --name bs-server \
+    --privileged \
+    bs-server
