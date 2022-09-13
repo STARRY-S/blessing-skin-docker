@@ -4,6 +4,7 @@ cd $(dirname $0)/..
 
 if [[ -z "$VERSION" ]]; then
     echo "VERSION environment variable not specified, set to default: 6.0.2"
+    VERSION="6.0.2"
 fi
 
 echo "Downloading Blessing Skin Server v$VERSION from GitHub Releas"
