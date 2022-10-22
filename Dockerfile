@@ -2,7 +2,7 @@ FROM ubuntu:22.04
 ARG HTTP_PROXY
 ARG HTTPS_PROXY
 # Avoid dpkg show interactive dialog
-ARG DEBIAN_FRONTEND=noninteractiv
+ARG DEBIAN_FRONTEND=noninteractive
 WORKDIR /server
 
 # Copy source files

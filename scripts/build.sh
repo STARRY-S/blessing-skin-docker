@@ -2,4 +2,4 @@
 
 cd $(dirname $0)/..
 
-docker build -t bs-server .
+docker build --no-cache -t bs-server .
