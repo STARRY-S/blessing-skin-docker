@@ -24,4 +24,6 @@ fi
 service php8.1-fpm restart
 service nginx restart
 
-sleep infinity
+echo "=========== Server started ==========="
+
+tail -f /var/log/nginx/error.log
