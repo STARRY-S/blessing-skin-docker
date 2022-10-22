@@ -12,6 +12,7 @@ mkdir -p html
 
 docker run -v $(pwd)/certs:/certs \
     -v $(pwd)/html:/server/html \
+    --restart=unless-stopped \
     -d -p 80:80 -p 443:443 \
     --name bs-server \
     --privileged \
