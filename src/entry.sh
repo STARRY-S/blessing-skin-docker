@@ -21,7 +21,7 @@ if [[ ! -e "html/.env" ]]; then
     cd ..
 fi
 
-service php8.2-fpm restart
+service php8.1-fpm restart
 service nginx restart
 
 sleep infinity
