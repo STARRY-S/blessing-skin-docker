@@ -3,7 +3,7 @@
 cd /server/
 
 # First initialize
-if [[ ! -e ".env" ]]; then
+if [[ ! -e "html/.env" ]]; then
     echo "========== Start first initialize =========="
 
     # Uncompressing blessing skin server
