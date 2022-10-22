@@ -21,6 +21,8 @@ if [[ ! -e "html/.env" ]]; then
     cd ..
 fi
 
+cat html/.env | grep "PLUGINS_REGISTRY" || echo "PLUGINS_REGISTRY=https://git.qvq.network/bs-community/plugins-dist/-/raw/master/registry_{lang}.json" >> html/.env
+
 service php8.1-fpm restart
 service nginx restart
 
