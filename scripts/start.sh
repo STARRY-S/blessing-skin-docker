@@ -10,9 +10,13 @@ fi
 mkdir -p certs
 mkdir -p html
 
+if [[ ! -e "default.conf" ]]; then
+    touch default.conf
+fi
+
 docker run -v $(pwd)/certs:/certs \
     -v $(pwd)/html:/server/html \
-    -v $(pwd)/default.conf:/etc/nginx/sites-enabled/default \
+    -v $(pwd)/default.conf:/etc/nginx/sites-enabled/default:ro \
     --restart=unless-stopped \
     -d -p 80:80 -p 443:443 \
     --name bs-server \
