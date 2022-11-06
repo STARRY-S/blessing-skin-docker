@@ -20,8 +20,6 @@ RUN apt -y install \
     nginx php8.1-fpm php8.1-gd php8.1-mbstring php8.1-xml php8.1-zip \
     php8.1-mysql
 
-RUN cp nginx.conf /etc/nginx/sites-enabled/default
-
 # Create php8.1-fpm socket folder
 RUN mkdir -p /run/php && chown www-data:www-data /run/php
 

@@ -6,6 +6,9 @@ cd /server/
 if [[ ! -e "html/.env" ]]; then
     echo "========== Start first initialize =========="
 
+    # nginx default configuration
+    cat default.conf > /etc/nginx/sites-enabled/default
+
     # Uncompressing blessing skin server
     mkdir -p html
     unzip server.zip -d /server/html

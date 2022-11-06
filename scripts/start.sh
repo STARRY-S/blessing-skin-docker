@@ -12,6 +12,7 @@ mkdir -p html
 
 docker run -v $(pwd)/certs:/certs \
     -v $(pwd)/html:/server/html \
+    -v $(pwd)/default.conf:/etc/nginx/sites-enabled/default \
     --restart=unless-stopped \
     -d -p 80:80 -p 443:443 \
     --name bs-server \
