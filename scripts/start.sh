@@ -13,7 +13,7 @@ mkdir -p html
 if [[ -d "default.conf" ]]; then
     rm -rf default.conf
     touch default.conf
-else if [[ ! -f "default.conf" ]]; then
+elif [[ ! -f "default.conf" ]]; then
     touch default.conf
 fi
 
